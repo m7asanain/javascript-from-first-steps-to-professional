@@ -1,66 +1,88 @@
 <!DOCTYPE html>
 <!-- saved from url=(0063)https://anjana.dev/javascript-first-steps/2-jsquiz-starter.html -->
-<html lang="en-US"><link type="text/css" id="dark-mode" rel="stylesheet" href="https://anjana.dev/javascript-first-steps/2-jsquiz-starter.html"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-  <title>Quiz.js</title>
-	<style>
-			body {
-					margin: 1rem auto;
-					padding: 3rem;
-					font-family: sans-serif;
-			}
-			header {
-					width: 50%;
-					margin: 1em auto;
-			}
-			main {
-					min-width: 25rem;
-					max-width: 50%;
-					margin: 0px auto;
-					display:flex; 
-					flex-direction: column;
-			}
-			#statement {
-					border: 1px solid black;
-					border-radius: 0.5rem;
-					box-shadow: 5px 5px 5px gray;
-					padding: 1rem;
-					font-size: x-large;
-					text-align: center;
-					margin: 1rem 0px;
-					min-height: 2em;
-			}
-			#explanation {
-					padding: 1rem;
-					text-align: center;
-			}
-			#options {
-					width: 100%;
-					display: flex;
-					flex-direction: column;
-			}
-			button {
-					padding: 0.5rem;
-					font-size: medium;
-					border-radius: 5px;
-			}
-			.correct {
-					background-color: lightgreen;
-			}
-			.incorrect {
-					background-color: lightpink;
-			}
-	</style>
-  <style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style><script src="./Quiz.js_files/detector.js.download"></script><script src="./Quiz.js_files/detector.js.download"></script></head>
-  <body data-new-gr-c-s-check-loaded="14.1100.0" data-gr-ext-installed="" cz-shortcut-listen="true">
-    <header>
-    <h1>Quiz.js</h1>
-    <p>Do you know JS? Find out!</p>
-    </header>
+<html lang="en-US">
+	<link type="text/css" id="dark-mode" rel="stylesheet"
+		href="https://anjana.dev/javascript-first-steps/2-jsquiz-starter.html">
 
-    <main>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>Quiz.js</title>
+		<style>
+			body {
+				margin: 1rem auto;
+				padding: 3rem;
+				font-family: sans-serif;
+			}
+
+			header {
+				width: 50%;
+				margin: 1em auto;
+			}
+
+			main {
+				min-width: 25rem;
+				max-width: 50%;
+				margin: 0px auto;
+				display: flex;
+				flex-direction: column;
+			}
+
+			#statement {
+				border: 1px solid black;
+				border-radius: 0.5rem;
+				box-shadow: 5px 5px 5px gray;
+				padding: 1rem;
+				font-size: x-large;
+				text-align: center;
+				margin: 1rem 0px;
+				min-height: 2em;
+			}
+
+			#explanation {
+				padding: 1rem;
+				text-align: center;
+			}
+
+			#options {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			button {
+				padding: 0.5rem;
+				font-size: medium;
+				border-radius: 5px;
+			}
+
+			.correct {
+				background-color: lightgreen;
+			}
+
+			.incorrect {
+				background-color: lightpink;
+			}
+		</style>
+		<style type="text/css">
+			@font-face {
+				font-family: Roboto;
+				src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf");
+			}
+		</style>
+		<script src="./Quiz.js_files/detector.js.download"></script>
+		<script src="./Quiz.js_files/detector.js.download"></script>
+	</head>
+
+	<body data-new-gr-c-s-check-loaded="14.1100.0" data-gr-ext-installed="" cz-shortcut-listen="true">
+		<header>
+			<h1>Quiz.js</h1>
+			<p>Do you know JS? Find out!</p>
+		</header>
+
+		<main>
 			<div id="statement">
-					
+
 			</div>
 
 			<div id="options">
@@ -71,18 +93,18 @@
 			<div id="explanation">
 
 			</div>
-    </main>
+		</main>
 
-  
 
-  	<script type="text/javascript">
+
+		<script type="text/javascript">
 
 
 			// TODO 1: Declare & assign variables pointing to the corresponding element(s)
 			// statement should be the "statement" div
 			const statement = document.getElementById("statement");
 			// optionButtons should be all the elements within the "options" div
-			const optionButtons = document.querySelectorAll("button"); 
+			const optionButtons = document.querySelectorAll("button");
 			// explanation should be the "explanation" div
 			const explanation = document.getElementById("explanation");
 
@@ -95,7 +117,7 @@
 				explanation: "Arrays are a kind of objects with a special properties."
 			}
 
-			
+
 			// TODO 3: Set the text of the statement element to the fact's statement
 			statement.textContent = fact.statement;
 
@@ -103,22 +125,31 @@
 			// disable(button) should set the button element's attribute "disabled" to the value ""
 
 			const disable = button => button.setAttribute("disabled", "");
-			
+
 			// enable(button) should remove the attribute "disabled" from the button element
-			
+
 			const enable = button => button.removeAttribute("disabled");
-			
+
 
 			// TODO 5: Declare an isCorrect function that compares a guess to the right answer
 			// isCorrect(guess) should return true if the guess matches the fact's answer
-			
+
+			const isCorrect = guess => {
+				// if (guess === fact.answer) {
+				// 	return true;
+				// } else {
+				// 	return false;
+				// }
+				return guess === fact.answer;
+			}
+
 
 
 			// TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
 							// TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
 
 
-							// TODO 7: Within the event handler function, 
+							// TODO 7: Within the event handler function,
 							// Use a for loop to disable all the option buttons
 
 
@@ -127,9 +158,10 @@
 							// Use a conditional to compare the guess to the fact's answer
 							// and add the "correct"/"incorrect" class as appropriate
 
-    
 
-  	</script>
+
+		</script>
 
 	</body>
+
 </html>
