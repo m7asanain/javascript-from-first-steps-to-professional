@@ -134,13 +134,13 @@
 			// TODO 5: Declare an isCorrect function that compares a guess to the right answer
 			// isCorrect(guess) should return true if the guess matches the fact's answer
 
-			const isCorrect = guess => {
+			const isCorrect = guessString => {
 				// if (guess === fact.answer) {
 				// 	return true;
 				// } else {
 				// 	return false;
 				// }
-				return guess === fact.answer;
+				return guessString === fact.answer.toString();
 			}
 
 
